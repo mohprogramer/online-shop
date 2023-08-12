@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { shotern } from '../helpers/founctions';
 
 const Product = ({data}) => {
@@ -9,7 +9,7 @@ const Product = ({data}) => {
             <h3>{shotern(data.title)}</h3>
             <p>${data.price}</p>
             <div>
-                <a href="hh" >Details</a>
+                <Link to={`/products/${data.id}`} >Details</Link>
                 <div>
                     <button>Add to cart</button>
                 </div>
