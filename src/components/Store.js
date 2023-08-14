@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-
-import { ProductsContext } from '../context/ProductsContextProvider';
+//Components
 import Product from './Product';
+//Context
+import { ProductsContext } from '../context/ProductsContextProvider';
 
 const Store = () => {
 

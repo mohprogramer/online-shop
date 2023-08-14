@@ -1,7 +1,11 @@
 import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
-import { shotern, isInCart } from '../helpers/founctions';
+//Functions
+import { shotern, isInCart, quantityCounter } from '../helpers/founctions';
+//Context
 import { CartContext } from '../context/CartContextProvider';
+//Icons
+import trash from '../assets/icons/trash.svg'
 
 
 const Product = ({data}) => {
@@ -23,7 +27,10 @@ const Product = ({data}) => {
                         
                     }
                     {
-                        
+                        quantityCounter(state, data.id) === 1 && <button onClick={() => dispatch({type:"REMOVE_ITEM",payload:data})} ><img src={trash} alt='trash' style={{width:"10px"}} /></button>
+                    }
+                    {
+                        quantityCounter(state, data.id) > 1 && <button onClick={() => dispatch({type:"DECREASE",payload:data})} >-</button>
                     }
                 </div>
             </div>

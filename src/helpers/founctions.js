@@ -9,5 +9,9 @@ export const isInCart = (state, id) => {
 
 export const quantityCounter = (state , id) => {
     const item = state.selectedItem.find(item => item.id === id);
-    return item.quantity
+    if(!item){
+        return false;
+    } else{
+        return item.quantity;
+    }
 }
