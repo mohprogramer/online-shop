@@ -28,7 +28,8 @@ const cartReducer = (state, action) => {
             })
             return {
                 ...state,
-                ...sumItems(state.selectedItem)
+                ...sumItems(state.selectedItem),
+                checkout:false
             }
         case "REMOVE_ITEM":
          const newSeletedItem = state.selectedItem.filter(item => item.id !== action.payload.id); 
@@ -62,7 +63,12 @@ const cartReducer = (state, action) => {
                 checkout: true
             }    
         case "CLEAR":
-            return initialState
+            return{
+                selectedItem : [],
+                itemCounter : 0,
+                totalPrice: 0,
+                checkout: false
+            }
         default:
             return state        
     }

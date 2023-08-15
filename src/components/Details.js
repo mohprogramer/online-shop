@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ProductsContext } from '../context/ProductsContextProvider';
 
+//Styles
+import styles from './Details.module.css'
 
 const Details = () => {
 
@@ -10,14 +12,14 @@ const Details = () => {
     const {image,price, title, description, category} = products[id.id - 1]
 
     return (
-        <div>
-            <img src={image} alt={title} />            
-            <div>
+        <div className={styles.container} >
+            <img className={styles.image} src={image} alt={title} />            
+            <div className={styles.textContainer} >
                 <h3>{title}</h3>
-                <p>{description}</p>
-                <p><span>Category: </span>{category}</p>
-                <div>
-                    <span>{price}</span>
+                <p className={styles.description} >{description}</p>
+                <p className={styles.category} ><span>Category: </span>{category}</p>
+                <div className={styles.buttonContainer} >
+                    <span className={styles.price} >{price}</span>
                     <Link to="/" >Back to home</Link>
                 </div>
             </div>
